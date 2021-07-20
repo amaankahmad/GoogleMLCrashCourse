@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+ \documentclass[12pt]{article}
 \usepackage{fullpage}
 \usepackage{subfig}
 \usepackage{blindtext}
@@ -9,14 +9,14 @@
 \usepackage{hyperref}
 
 \title{\textbf{\Huge Google Machine Learning Course}}
-\date{\Large July 2021}
-\author{\LARGE Amaan Ahmad}
+\date{\large July 2021}
+\author{\Large Amaan Ahmad}
 \begin{document}
 \maketitle
 \begin{abstract}
 \begin{center}
 	Machine Learning Crash Course with TensorFlow APIs Google's fast-paced, practical introduction to machine learning. Learn and apply fundamental machine learning concepts with the Crash Course, get real-world experience with the companion Kaggle competition, or visit Learn with Google AI to explore the full library of training resources.\\
-	Course found \href{https://developers.google.com/machine-learning/crash-course}{here}
+	Course can be found \href{https://developers.google.com/machine-learning/crash-course}{here}
 \end{center}
 
 \end{abstract}
@@ -24,27 +24,36 @@
 \tableofcontents
 \newpage
 \section{Framing}
+\subsection{Supervised Machine Learning}
+The basic framework that will be explored is `Supervised Machine Learning'. Here, models are creates that combine inputs to produce useful predictions, even on previously unseen data.
 \subsection{Labels}
-A label is the thing we're predicting — the y variable in simple linear regression. The label could be the future price of wheat, the kind of animal shown in a picture, the meaning of an audio clip, or just about anything.
+A label is the target variable that is to be predicted — the y variable in simple \href{https://developers.google.com/machine-learning/glossary#linear_regression}{\textbf{linear regression}}. The label could be the future price of wheat, the kind of animal shown in a picture, the meaning of an audio clip, or just about anything.
+\\ \newline In software such as a spam detector, the labels could include `spam' or `not spam'.
 \subsection{Features}
-A feature is an input variable — the x variable in simple linear regression. A simple machine learning project might use a single feature, while a more sophisticated machine learning project could use millions of features, specified as: $x_1, x_2,...,x_n$
-\\ In a spam detector example, the features could include the following:
+Features are the way data is represented. A feature is an input variable — the x variable in simple \href{https://developers.google.com/machine-learning/glossary#linear_regression}{\textbf{linear regression}}. A simple machine learning project might use a single feature, while a more sophisticated machine learning project could use multiples of features, specified as: $x_1, x_2,...,x_n$
+\\ \newline In a spam detector example, the features could include the following:
 	\begin{itemize}
 		\item email address
 		\item words or phrases in the content of the email
 		\item time of day that email was sent
 	\end{itemize}
+\subsection{Examples}
+An `example' is a particular instance of data - such as one email. This could be either:
+\begin{itemize}
+	\item a \textbf{labelled example} - which has both feature information represented in the email and the label value of `spam' or `not spam'. These examples are used to \textbf{train} the model.
+	\item an \textbf{unlabelled example} - which there is the feature information but no information on whether it is `spam' or `not spam'. These examples are used to \textbf{test} the model.
+\end{itemize}
 \subsection{Models}
-A model is the relationship between the features and the label. For example, the spam detection model the features may associate some features stronger with "spam" than others.
-\\There are two phases in a models life:
+A `model' defines the relationship between the features and the label and this is what is doing the predicting through a process of \textbf{learning} from data. \\\newline For example, with the spam detection model, the model may associate some features stronger with `spam' than others.
+\\\newline There are two phases in a models life:
 	\begin{itemize}
-		\item \textbf{Training} - or the \textbf{Learning} phase. In this phase, you show the model labelled examples to enable the model to gradually learn the relationship between the features and label.
-		\item \textbf{Inference} phase. This phase involves using the model to unlabelled examples in order to make useful predictions.
+		\item \textbf{Training} - means creating or \textbf{learning} the model. In this phase, you show the model labelled examples to enable the model to gradually learn the relationships between features and label (x).
+		\item \textbf{Inference} - means applying the trained model to unlabeled examples. Here, the trained model is used to make useful predictions (y).
 	\end{itemize}
 \subsection{Regression or Classification}
 \begin{itemize}
-	\item \textbf{Regression} models predicts continuous values i.e. value of a house or probability.
-	\item \textbf{Classification} models predict discrete values i.e. if an email is spam or not spam, or is an image a dog, a cat or horse.
+	\item \textbf{Regression} models predicts continuous values (i.e. value of a house or probability).
+	\item \textbf{Classification} models predict discrete values (i.e. if an email is `spam' or `not spam', or is an image a `dog', a `cat' or `horse').
 \end{itemize}
 \section{Descending into ML}
 \subsection{Linear Regression}
@@ -69,27 +78,26 @@ This model only uses one feature however if we wanted to use multiple features, 
 $y' = b + w_1x_1 + w_2x_2 + w_3x_3 + ... + w_nx_n$
 \end{center}
 \subsection{Training and Loss}
-Training a model means determining good values for all the weights and the bias from labelled examples. A machine learning algorithm determines a suitable model by attempting to find a model that minimizes loss - this process is called \textbf{Empirical Risk Minimization}.
-\\ \textbf{Loss} is the penalty of making a bad predictions. The models aim is to find a set of weights and biases that have a \textit{low loss} on average. Figure 1 demonstrates how a model attempted to find an appropriate model. Here the Arrowed lines represent the loss and the blue line represent the predictions.
+\href{https://developers.google.com/machine-learning/glossary#training}{\textbf{Training}} a model means determining good values for all the weights and the bias from labelled examples. In supervised learning, a machine learning algorithm determines a suitable model by examining many examples and attempting to find a model that minimizes loss - this process is called \textbf{Empirical Risk Minimization}.
+\\ \href{https://developers.google.com/machine-learning/glossary#loss}{\textbf{Loss}} is the penalty of making a bad predictions. It is a number indicating how bad the model's prediction was on a single example. The goal of training a model is to find a set of weights and biases that have a \textit{low loss} on average with the aim of a perfect model having the loss of zero. Figure 1 demonstrates how a model attempted to find an appropriate model. Here the Arrowed lines represent the loss and the blue line represent the predictions.
 
 \begin{figure}[h]
-\includegraphics[scale = 0.2]{imgs/LossSideBySide}
+\includegraphics[scale = 0.3]{imgs/LossSideBySide}
 \centering
 \caption{Shows a high loss model (left) and a low loss model (right)}
 \end{figure}
-
+Mathematical functions — called \textbf{loss functions} — are used to aggregate the individual losses in a meaningful fashion.
 \subsubsection{Squared Loss}
-We use a loss function on linear regression called \textbf{Squared Loss} or $L_2$ loss. It is the square of the difference of the label and the prediction. Or:
-
+We use a loss function on linear regression called \textbf{Squared Loss}  (also known as \textbf{$L_2$ loss}). It is the square of the difference of the label and the prediction as shown by the equation:
 \begin{center}
 $(observation - prediction(x))^2$ or $(y - y')^2$
 \end{center}
 
 \subsubsection{Mean Square Error}
-MSE is the average squared loss pre example over the entire dataset. MSE is calculated but summing all the square losses and then divide by the number of examples:
+MSE is the average squared loss per example over the entire dataset. MSE is calculated but summing all the squared losses and then divide by the number of examples:
 
 \begin{center}
-$MSE = {{1}\over {N}} \sum_{(x,y)\in D} (y - prediction(x))^2$
+\large $MSE = {{1}\over {N}} \sum_{(x,y)\in D} (y - prediction(x))^2$
 \end{center}
 Where:
 \begin{itemize}
@@ -99,15 +107,15 @@ Where:
 	\item $y$ is the example's label.
 	\end{itemize}
 	\item $prediction(x)$ is a function of the weights and bias with the set of features $x$.
-	\item $D$ is the Data set which contain numerous labelled examples.
-	\item $N$ is the number of examples in D.
+	\item $D$ is the data set which contain numerous labelled examples, which are $(x,y)$ pairs.
+	\item $N$ is the number of examples in $D$.
 \end{itemize}
-
+Although MSE is commonly-used in machine learning, it is neither the only practical loss function nor the best loss function for all circumstances.
 
 \section{Reducing Loss}
 \subsection{Iterative Approach}
 Similar to the \textit{Hot or Cold game} where we start with a guess then see what the loss is, then try another guess of model parameters, ($w_1$ and $b_1$), and see if you are closer to the smallest loss. Figure 2 shows use this process.
-\begin{figure}[hbt!]
+\begin{figure}[h]
 \includegraphics[scale = 0.5]{imgs/Iterative Approach.PNG}
 \centering
 \caption{Shows the trial and error approach which machine learning algorithms us to train the model}
@@ -119,65 +127,115 @@ $y' = w_1x_1 + b$
 
 We choose random numbers for example;
 $b = 0$ and $w_1 = 0$
-
-The initial values we choose does not matter. We then get the predict value $y'$. Using this predicted value we use the loss function to determine the loss. The program then iterates over to find the corresponding pair of values to find the lowest loss. Eventually, the loss stops changing and this means the model has \textbf{converged}.
-
+The initial values we choose does not matter. We then get the predict value $y'$. Using this predicted value we use the loss function (finding the difference between y' and the correct label y corresponding to features x) to determine the loss. The program then iterates over to find the corresponding pair of values to find the lowest loss. Eventually, the loss stops changing (or at least changes extremely slowly) and this means the model \href{https://developers.google.com/machine-learning/glossary#convergence}{\textbf{converges}}. Iterative strategies are prevalent in machine learning, primarily because they scale so well to large data sets.
 \subsection{Gradient Decent}
 For linear regression problems, the resulting graph of loss vs $w_1$ will always be convex. which looks like this:
 
 \begin{figure}[ht]
+\centering
 \includegraphics[scale = 0.7]{imgs/lossVSweight}
 \caption{Shows the convex shaped graph}
 \end{figure}
 
-As shown in figure 3, we can see that the convex problem only has one minimum and hence it is where the loss function converges. To find the convergence point we use a mechanism called \textbf{gradient descent}.
-\\The algorithm picks a starting point, finds the gradient of the curve, then the algorithm takes a step in the direction of negative gradient to reduce loss. The amount that the step is is very important. As shown below in figure 4.
+As shown in figure 3, we can see that the convex problem only has one minimum and this is where the loss function converges. To find the convergence point we use a mechanism called \href{https://developers.google.com/machine-learning/glossary#gradient_descent}{\textbf{gradient descent}}.
+\\The algorithm picks a starting point (doesn't matter much so most algorithms set $w_1 = 0$), finds the gradient of the curve, then the algorithm takes a \href{https://developers.google.com/machine-learning/glossary#step}{\textbf{step}} in the direction of negative gradient to reduce loss. The gradient descent algorithm then calculates the gradient of the loss curve at the starting point. The gradient of the loss is equal to the derivative (slope) of the curve, and tells you which way is "warmer" or "colder." When there are multiple weights, the \textbf{gradient} is a vector of partial derivatives with respect to the weights. (Note: The gradient is a vector, so it has both direction and magnitude.) The gradient always points in the direction of steepest increase in the loss function. The gradient descent algorithm takes a step in the direction of the negative gradient in order to reduce loss as quickly as possible. To determine the next point along the loss function curve, the gradient descent algorithm adds some fraction (step) of the gradient's magnitude to the starting point. The value of this step is very important, as shown below in figure 4.
 
-\begin{figure}[ht]
-\includegraphics[scale = 0.8]{imgs/stepSize}
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 0.85]{imgs/stepSize}
 \caption{Left graph shows the small steps, Middle graph shows the effect of large steps and the Right graph shows the Goldilocks approach}
 \centering
 \end{figure}
-The step size is also referred as the \textbf{learning rate}. They are used to determine the next point.
-\textbf{Hyperparameters} are "knobs" that programmers tweak in machine learning to tune the learning rate.
+When performing gradient descent, we generalize the above process to tune all the model parameters simultaneously. For example, to find the optimal values of both $w_1$ and the bias $b$, we calculate the gradients with respect to both $w_1$ and $b$. Next, we modify the values of $w_1$ and $b$ based on their respective gradients. Then we repeat these steps until we reach minimum loss. \\ 
+The step size is also referred as the \textbf{learning rate}. Gradient descent algorithms multiply the gradient by this value to determine the next point. \textbf{Hyperparameters} are "knobs" that programmers tweak in machine learning algorithms to tune the learning rate.
 As you can see from figure 4, if the learning rate is too small the learning would take too long. If the learning rate is to big, there is a possibility that you can overshoot the optimal point.
-To select the best learning rate, we use the Goldilocks learning rate. It works like this:
-\begin{itemize}
-	\item If the gradient of the loss function at the point is small then you can try a larger learning rate.
-	\item And vice-versa.
-\end{itemize}
+For every regression problem there is a Goldilocks learning rate which is related to how flat the loss funciton is. If the gradient of the loss function at the point is small then you can try a larger learning rate and vice-versa.
 
-\section{First Steps with TF}
-This section was using code. To see the code please refer to {\tt{Code/FirstStepswithTF}}.
-\section{Generalization}
-The figure below shows the two graphs \textbf{overfits} the traits of the data that the model was trained on. The model gets a low loss on the training data set however doesn't as much of a good job of the new dataset.
+\subsection{Stochastic Gradient Descent - Reducing Loss}
+In gradient descent, a \href{https://developers.google.com/machine-learning/glossary#batch}{\textbf{batch}} is the total number of examples you use to calculate the gradient in a single iteration. When working with large data sets, there are going to be huge numbers of features and as such even a single iteration can take a very long time to compute.
+A large data set with randomly sampled examples probably contains redundant data. In fact, redundancy becomes more likely as the batch size grows.
+\\\href{https://developers.google.com/machine-learning/glossary#SGD}{\textbf{Stochastic gradient descent (SGD)}} uses only a single example (a batch size of 1) per iteration. Given enough iterations, SGD works but is very noisy. The term "stochastic" indicates that the one example comprising each batch is chosen at random.
+\\\href{https://developers.google.com/machine-learning/glossary#mini-batch}{\textbf{Mini-batch stochastic gradient descent (mini-batch SGD)}} is a compromise between full-batch iteration and SGD. A mini-batch is typically between 10 and 1,000 examples, chosen at random. Mini-batch SGD reduces the amount of noise in SGD but is still more efficient than full-batch.
+
+\section{First Steps with TensorFlow}
+\href{https://developers.google.com/machine-learning/glossary#TensorFlow}{\textbf{TensorFlow}} is an end-to-end open source platform for machine learning. TensorFlow is a rich system for managing all aspects of a machine learning system; however, this class focuses on using a particular TensorFlow API to develop and train machine learning models. See the \href{https://tensorflow.org/}{\underline{TensorFlow documentation}} for complete details on the broader TensorFlow system.
+
+TensorFlow APIs are arranged hierarchically, with the high-level APIs built on the low-level APIs. Machine learning researchers use the low-level APIs to create and explore new machine learning algorithms. In this class, you will use a high-level API named tf.keras to define and train machine learning models and to make predictions. tf.keras is the TensorFlow variant of the open-source Keras API. Please note that use of tf.keras requires understanding of \href{https://numpy.org/}{\textbf{NumPy}} and \href{https://pandas.pydata.org/}{\textbf{pandas}}. For a brief recap view these \href{https://colab.research.google.com/github/google/eng-edu/blob/main/ml/cc/exercises/numpy_ultraquick_tutorial.ipynb?utm_source=mlcc&utm_campaign=colab-external&utm_medium=referral&utm_content=numpy_tf2-colab&hl=en}{\textbf{NumPy}} and \href{https://colab.research.google.com/github/google/eng-edu/blob/main/ml/cc/exercises/pandas_dataframe_ultraquick_tutorial.ipynb?utm_source=mlcc&utm_campaign=colab-external&utm_medium=referral&utm_content=pandas_tf2-colab&hl=en}{\textbf{pandas}} tutorials.
+\\To see the code used in this section please refer to {\tt{code/FirstStepsWithTF}}.
+\\The following figure shows the hierarchy of TensorFlow toolkits:
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale = 0.55]{imgs/TFHierarchy.png}
+	\caption{TensorFlow toolkit hierachy}
+\end{figure}
+\subsection{Summary of hyperparameter tuning}
+Most machine learning problems require a lot of hyperparameter tuning. Unfortunately, we can't provide concrete tuning rules for every model. Lowering the learning rate can help one model converge efficiently but make another model converge much too slowly. You must experiment to find the best set of hyperparameters for your dataset. That said, here are a few rules of thumb:
+\begin{itemize}
+	\item Training loss should steadily decrease, steeply at first, and then more slowly until the slope of the curve reaches or approaches zero.
+	\item If the training loss does not converge, train for more epochs.
+	\item If the training loss decreases too slowly, increase the learning rate. Note that setting the learning rate too high may also prevent training loss from converging.
+	\item If the training loss varies wildly (that is, the training loss jumps around), decrease the learning rate.
+	\item Lowering the learning rate while increasing the number of epochs or the batch size is often a good combination.
+	\item Setting the batch size to a very small batch number can also cause instability. First, try large batch size values. Then, decrease the batch size until you see degradation.
+	\item For real-world datasets consisting of a very large number of examples, the entire dataset might not fit into memory. In such cases, you'll need to reduce the batch size to enable a batch to fit into memory.
+\end{itemize}
+Remember: the ideal combination of hyperparameters is data dependent, so you must always experiment and verify.
+
+\subsection{Correlation Matrix}
+A \textbf{correlation matrix} indicates how each attribute's raw values relate to the other attributes' raw values. Correlation values have the following meanings:
+\begin{itemize}
+	\item 1.0: perfect positive correlation; that is, when one attribute rises, the other attribute rises.
+	\item -1.0: perfect negative correlation; that is, when one attribute rises, the other attribute falls.
+	\item 0.0: no correlation; the two columns are not linearly related.
+\end{itemize}
+In general, the higher the absolute value of a correlation value, the greater its predictive power. 
+
+\section{Generalisation}
+The figure below shows the two graphs \href{https://developers.google.com/machine-learning/glossary#overfitting}{\textbf{overfit}} the traits of the data that the model was trained on. The model gets a low loss during training but does a poor job \href{https://developers.google.com/machine-learning/glossary#prediction}{\textbf{predicting}} new data as shown by the figure on the right.
 \begin{figure}[h]%
     \centering
-	\subfloat[A complex model for distinguishing sick from healthy trees.]{{\includegraphics[width=5cm]{imgs/complexPredictionModel.png}}}%
+	\subfloat[A complex model for distinguishing sick from healthy trees.]{{\includegraphics[width=7.5cm]{imgs/complexPredictionModel.png}}}%
     \qquad
-    \subfloat[The model did a bad job predicting new data.]{{\includegraphics[width=5cm]{imgs/complexModelWithNewData.png}}}%
+    \subfloat[The model did a bad job predicting new data.]{{\includegraphics[width=7.5cm]{imgs/complexModelWithNewData.png}}}%
     \caption{}%
 \end{figure}
 
-This problem is due to the fact that the model is core complicated than necessary.
+Overfitting is caused by making a model more complex than necessary. The fundamental tension of machine learning is between fitting our data well, but also fitting the data as simply as possible.
 
 \subsection{William of Ockham}
-William of Ockham was a 14th century philosopher and loved simplicity. He believed that simpler formulae or theories are better than complex ones. Thus in machine learning terms:
+William of Ockham was a 14th century philosopher and loved simplicity. He believed that simpler formulae and theories are better than more complex ones. Thus in machine learning terms:
 \begin{center}
-	\textit{The less complex an ML model, the more likely that a good empirical result is not just due to the peculiarities of the sample.}
+	\textit{``The less complex an ML model, the more likely that a good empirical result is not just due to the peculiarities of the sample."}
 \end{center}
-A machine learning model aims to make good predictions on new, previously unseen data. But if you are building a model from your data set, how would you get the previously unseen data? Well, one way is to divide your data set into two subsets; training set and a test set.
-
-\subsection{Machine Learning Fine Print}
-There are three basic assumptions that aid generalization:
+In modern times, we've formalised Ockham's razor into the fields of \textbf{statistical learning theory} and \textbf{computational learning theory}. These fields have developed \textbf{generalisation bounds} - a statistical description of a model's ability to \href{https://developers.google.com/machine-learning/glossary#generalization}{\textbf{generalise}} to new data based on factors such as:
 \begin{itemize}
-	\item Drawing examples \textbf{independantly and identically (i.i.d)} at random. THis ensures the examples do not influence each other.
-	\item The distribution is \textbf{stationary} and doesn't change within the data.
+	\item the complexity of the model
+	\item the model's performance on training data
+\end{itemize}
+While the theoretical analysis provides formal guarantees under idealised assumptions, they can be difficult to apply in practice. Therefore, let's focus instead on empirical evaluation to judge a model's ability to generalise to new data.
+A machine learning model aims to make good predictions on new, previously unseen data. But if you are building a model from your data set, how would you get the previously unseen data? Well, one way is to divide your data set into two subsets; 
+\begin{itemize}
+	\item \href{https://developers.google.com/machine-learning/glossary#training_set}{\textbf{training set}} - a subset to train a model
+	\item \href{https://developers.google.com/machine-learning/glossary#test_set}{\textbf{test set}} - a subset to test the model
+\end{itemize}
+Good performance on the test set is a useful indicator of good performance on the new data in general, assuming that:
+\begin{itemize}
+	\item The test set is large enough.
+	\item You don't cheat by using the same test set over and over.
+\end{itemize}
+\subsection{Machine Learning Fine Print}
+There are three basic assumptions that aid generalisation:
+\begin{itemize}
+	\item Drawing examples \textbf{independantly and identically (i.i.d)} at random. This ensures the examples do not influence each other.
+	\item The distribution is \href{https://developers.google.com/machine-learning/glossary#stationarity}{\textbf{stationary}} and so it doesn't change within the data.
 	\item Drawing examples from partitions from the same distribution.
 \end{itemize}
 
+If the key assumptions of supervised ML are not met, then we lose important theoretical guarantees on our ability to predict on new data. However, in practise, we sometimes violate these assumptions.
+
 \section{Training and Test Sets}
-If you have a single data set, it is important to split the data into two subsets; Training set and Test set.
+If you have a single data set, it is important to split the data into two subsets; the \href{https://developers.google.com/machine-learning/glossary#training_set}{\textbf{training set}} and the \href{https://developers.google.com/machine-learning/glossary#test_set}{\textbf{test set}}.
 \\It is important that the test set is:
 \begin{itemize}
 	\item Large enough to get meaningful results
