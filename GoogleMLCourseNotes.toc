@@ -22,38 +22,38 @@
 \contentsline {subsection}{\numberline {5.2}Machine Learning Fine Print}{12}{subsection.5.2}%
 \contentsline {section}{\numberline {6}Training and Test Sets}{13}{section.6}%
 \contentsline {section}{\numberline {7}Validation}{13}{section.7}%
-\contentsline {section}{\numberline {8}Representaion}{13}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Feature Engineering}{13}{subsection.8.1}%
+\contentsline {section}{\numberline {8}Representaion}{14}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Feature Engineering}{14}{subsection.8.1}%
 \contentsline {subsubsection}{\numberline {8.1.1}Mapping Numerical Values}{14}{subsubsection.8.1.1}%
-\contentsline {subsubsection}{\numberline {8.1.2}Mapping Categorical Values}{14}{subsubsection.8.1.2}%
-\contentsline {subsection}{\numberline {8.2}Ensuring a Good Representation of Features}{15}{subsection.8.2}%
-\contentsline {subsubsection}{\numberline {8.2.1}Use Discrete Feature Values}{15}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.1.2}Mapping Categorical Values}{15}{subsubsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.2}Ensuring a Good Representation of Features}{16}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Use Discrete Feature Values}{16}{subsubsection.8.2.1}%
 \contentsline {subsubsection}{\numberline {8.2.2}Provide Obvious Meanings}{16}{subsubsection.8.2.2}%
-\contentsline {subsubsection}{\numberline {8.2.3}Don't Mix Actual Data with "Magic Numbers"}{16}{subsubsection.8.2.3}%
-\contentsline {subsubsection}{\numberline {8.2.4}Account for Potential Changes with the Meanings of Feature Values}{16}{subsubsection.8.2.4}%
-\contentsline {subsection}{\numberline {8.3}Cleaning Data}{16}{subsection.8.3}%
-\contentsline {subsubsection}{\numberline {8.3.1}Scaling Feature Values}{16}{subsubsection.8.3.1}%
-\contentsline {subsubsection}{\numberline {8.3.2}Handling Extreme Outliers}{16}{subsubsection.8.3.2}%
-\contentsline {subsubsection}{\numberline {8.3.3}Binning}{16}{subsubsection.8.3.3}%
-\contentsline {subsubsection}{\numberline {8.3.4}Scrubbing}{17}{subsubsection.8.3.4}%
-\contentsline {section}{\numberline {9}Feature Crosses}{17}{section.9}%
-\contentsline {section}{\numberline {10}Regularisation for Simplicity}{18}{section.10}%
-\contentsline {section}{\numberline {11}Logistic Regression}{19}{section.11}%
+\contentsline {subsubsection}{\numberline {8.2.3}Don't Mix Actual Data with "Magic Numbers"}{17}{subsubsection.8.2.3}%
+\contentsline {subsubsection}{\numberline {8.2.4}Account for Potential Changes with the Meanings of Feature Values}{17}{subsubsection.8.2.4}%
+\contentsline {subsection}{\numberline {8.3}Cleaning Data}{17}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}Scaling Feature Values}{17}{subsubsection.8.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.2}Handling Extreme Outliers}{17}{subsubsection.8.3.2}%
+\contentsline {subsubsection}{\numberline {8.3.3}Binning}{17}{subsubsection.8.3.3}%
+\contentsline {subsubsection}{\numberline {8.3.4}Scrubbing}{18}{subsubsection.8.3.4}%
+\contentsline {section}{\numberline {9}Feature Crosses}{18}{section.9}%
+\contentsline {section}{\numberline {10}Regularisation for Simplicity}{19}{section.10}%
+\contentsline {section}{\numberline {11}Logistic Regression}{20}{section.11}%
 \contentsline {subsection}{\numberline {11.1}Loss function for Logistic Regression}{20}{subsection.11.1}%
-\contentsline {section}{\numberline {12}Classification}{20}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Thresholding}{20}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}True vs. False, Positve vs. Negative}{20}{subsection.12.2}%
+\contentsline {section}{\numberline {12}Classification}{21}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Thresholding}{21}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}True vs. False, Positve vs. Negative}{21}{subsection.12.2}%
 \contentsline {subsection}{\numberline {12.3}Accuracy, Precision and Recall}{21}{subsection.12.3}%
-\contentsline {subsection}{\numberline {12.4}ROC and AUC}{21}{subsection.12.4}%
-\contentsline {subsection}{\numberline {12.5}Prediction Bias}{21}{subsection.12.5}%
-\contentsline {section}{\numberline {13}Regularization: Sparsity}{22}{section.13}%
-\contentsline {section}{\numberline {14}Neural Networks}{22}{section.14}%
-\contentsline {subsection}{\numberline {14.1}Hidden Layers}{23}{subsection.14.1}%
-\contentsline {subsection}{\numberline {14.2}Activation Functions}{24}{subsection.14.2}%
-\contentsline {subsection}{\numberline {14.3}Common Activation Functions}{24}{subsection.14.3}%
-\contentsline {section}{\numberline {15}Best Practices when training neural networks}{25}{section.15}%
-\contentsline {subsection}{\numberline {15.1}Failure Cases}{25}{subsection.15.1}%
-\contentsline {subsubsection}{\numberline {15.1.1}Vanishing Gradients}{25}{subsubsection.15.1.1}%
-\contentsline {subsubsection}{\numberline {15.1.2}Exploding Gradients}{25}{subsubsection.15.1.2}%
-\contentsline {subsubsection}{\numberline {15.1.3}Dead ReLU Units}{25}{subsubsection.15.1.3}%
-\contentsline {subsection}{\numberline {15.2}Dropout Regularization}{25}{subsection.15.2}%
+\contentsline {subsection}{\numberline {12.4}ROC and AUC}{22}{subsection.12.4}%
+\contentsline {subsection}{\numberline {12.5}Prediction Bias}{22}{subsection.12.5}%
+\contentsline {section}{\numberline {13}Regularization: Sparsity}{23}{section.13}%
+\contentsline {section}{\numberline {14}Neural Networks}{23}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Hidden Layers}{24}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}Activation Functions}{25}{subsection.14.2}%
+\contentsline {subsection}{\numberline {14.3}Common Activation Functions}{25}{subsection.14.3}%
+\contentsline {section}{\numberline {15}Best Practices when training neural networks}{26}{section.15}%
+\contentsline {subsection}{\numberline {15.1}Failure Cases}{26}{subsection.15.1}%
+\contentsline {subsubsection}{\numberline {15.1.1}Vanishing Gradients}{26}{subsubsection.15.1.1}%
+\contentsline {subsubsection}{\numberline {15.1.2}Exploding Gradients}{26}{subsubsection.15.1.2}%
+\contentsline {subsubsection}{\numberline {15.1.3}Dead ReLU Units}{26}{subsubsection.15.1.3}%
+\contentsline {subsection}{\numberline {15.2}Dropout Regularization}{26}{subsection.15.2}%

@@ -241,27 +241,34 @@ If you have a single data set, it is important to split the data into two subset
 	\item Large enough to get meaningful results
 	\item Is representative of the data in the entire set.
 \end{itemize}
-Another important thing is that you must make sure that you never train the model using the test set.
-
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale = 0.5]{imgs/GoodTrainingAndTesting.png}
+	\caption{Good example of a training and a testing set}
+\end{figure}
+Another important thing is that you must make sure that you never train the model using the test set as this gives you unrealistically strong opinions on how good your model is.
 \section{Validation}
-In the model mentioned previously, the dataset is split into 2 subsets. The workflow looks like \textbf{Figure 6(b)}. However, this poseses a problem for us as the "Tweak Model", i.e. adjusting anything about the model to design a new model, means that we have a greater risk of getting an overfit. Due to this, we divide the set into 3 subsets.
+In the model mentioned previously, the dataset is split into 2 subsets as seen in \textbf{Figure \ref{fig: importance of validation sets}a}. However, this poseses a problem for us as the "Tweak Model", i.e. adjusting anything about the model (e.g. learning rate) to designing a new model, is evaluated against the test set and leads to easily overfitting. Due to this, we divide the set into 3 subsets as seen in 
 \begin{figure}[h!]%
     \centering
-	\subfloat[Workflow with two partitions of the dataset]{{\includegraphics[width=7cm]{imgs/preValidation.png}}}%
+	\subfloat[Workflow with two partitions of the dataset]{{\includegraphics[width=12cm]{imgs/PreValidation.png}}}%
     \qquad
-    \subfloat[Workflow with three partitions of the dataset]{{\includegraphics[width=7cm]{imgs/postValidation.png}}}%
+    \subfloat[Workflow with three partitions of the dataset]{{\includegraphics[width=12cm]{imgs/PostValidation.png}}}%
     \caption{}%
+	\label{fig: importance of validation sets}
 \end{figure}
-\\\textbf{Figure(b)} shows how the third partition's workflow and how it reduces the chances of overfitting. 
+\textbf{Figure \ref{fig: importance of validation sets}b}. This has an improved workflow as it creates fewer exposures to the test set. As such we pick the model that does best on the new \href{https://developers.google.com/machine-learning/glossary#validation_set}{\textbf{validation set}} and double check the model against our test set.
 This helps as the model is chosen based on the validation set and also that the model is double checked by the test set.
+
 \section{Representaion}
 \subsection{Feature Engineering}
-The left side of \textbf{Figure 7} demonstrates the raw data from the source and the right shows the \textbf{Feature Vector}, a set of float values.
+The left side of \textbf{Figure \ref{fig: raw to feature}} demonstrates the raw data from the source and the right shows the \textbf{Feature Vector}, a set of float values.
 \\\textbf{Feature Engineering} is the process in which raw data is transformed into a feature vector.
 \begin{figure}[h]
 	\includegraphics[scale = 0.5]{imgs/RawToFeature.png}
 	\centering
 	\caption{Feature Engineering example}
+	\label{fig: raw to feature}
 \end{figure}
 
 \subsubsection{Mapping Numerical Values}
@@ -272,7 +279,7 @@ Mapping numerical values to floating-point is trivial as they can be multiplied 
 	\caption{Mapping numerical values to floating point values}
 \end{figure}
 
-\subsubsection{Mapping Categorical Values}
+\subsubsection{Mapping Categorical Values} 
 Mapping categorical is much less than mapping num'Makefile' has erical values. It is best described using an example:
 \\
 {\tt{\{'Charleston Road', 'North Shoreline Boulevard', 'Shorebird Way', 'Rengstorff Avenue'}\}}
