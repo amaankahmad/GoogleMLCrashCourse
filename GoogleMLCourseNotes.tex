@@ -260,12 +260,12 @@ In the model mentioned previously, the dataset is split into 2 subsets as seen i
 \textbf{Figure \ref{fig: importance of validation sets}b}. This has an improved workflow as it creates fewer exposures to the test set. As such we pick the model that does best on the new \href{https://developers.google.com/machine-learning/glossary#validation_set}{\textbf{validation set}} and double check the model against our test set.
 This helps as the model is chosen based on the validation set and also that the model is double checked by the test set.
 
-\section{Representaion}
+\section{Representation}
 \subsection{Feature Engineering}
-The left side of \textbf{Figure \ref{fig: raw to feature}} demonstrates the raw data from the source and the right shows the \textbf{Feature Vector}, a set of float values.
-\\\textbf{Feature Engineering} is the process in which raw data is transformed into a feature vector.
+The left side of \textbf{Figure \ref{fig: raw to feature}} demonstrates the raw data from the source and the right shows the \textbf{Feature Vector}, which is the set of floating-point values comprising the examples in your data set.
+\\\href{https://developers.google.com/machine-learning/glossary#feature_engineering}{\textbf{Feature Engineering}} is the process in which raw data is transformed into a feature vector. Machine Learning Engineers spend a lot of time (about 75\%) doing feature engineering. Many machine learning models must represent the features as real-numbered vectors since the feature values must be multiplied by the model weights.
 \begin{figure}[h]
-	\includegraphics[scale = 0.5]{imgs/RawToFeature.png}
+	\includegraphics[scale = 0.575]{imgs/RawToFeature.png}
 	\centering
 	\caption{Feature Engineering example}
 	\label{fig: raw to feature}
@@ -274,22 +274,17 @@ The left side of \textbf{Figure \ref{fig: raw to feature}} demonstrates the raw 
 \subsubsection{Mapping Numerical Values}
 Mapping numerical values to floating-point is trivial as they can be multiplied by a numeric weight. The figure below gives an example.
 \begin{figure}[h]
-	\includegraphics[scale = 0.5]{imgs/RawToIntFeature.png}
+	\includegraphics[scale = 0.55]{imgs/RawToIntFeature.png}
 	\centering
 	\caption{Mapping numerical values to floating point values}
 \end{figure}
 
 \subsubsection{Mapping Categorical Values} 
-Mapping categorical is much less than mapping num'Makefile' has erical values. It is best described using an example:
-\\
-{\tt{\{'Charleston Road', 'North Shoreline Boulevard', 'Shorebird Way', 'Rengstorff Avenue'}\}}
-\begin{figure}[h]
-	\includegraphics[scale = 0.5]{imgs/RawToStringFeature.png}
-	\centering
-	\caption{}
-\end{figure}
-\\We can accomplish this by defining a mapping from the feature values, which we'll refer to as the vocabulary of possible values, to integers. Since not every street in the world will appear in our dataset, we can group all other streets into a catch-all "other" category, known as an \textbf{OOV (out-of-vocabulary)} bucket.
-\\Using this, we get:
+\href{https://developers.google.com/machine-learning/glossary#categorical_data}{\textbf{Categorical features}} have a discrete set of possible values. For example, with a feature called {\tt{street\_name}}, options might include:\\
+{\tt{\{`Charleston Road', `North Shoreline Boulevard', `Shorebird Way', `Rengstorff Avenue'}\}}
+\\Since models cannot multiply strings by the learned weights, we use feature engineering to convert strings to numeric values.
+\\We can accomplish this by defining a mapping from the feature values, which we'll refer to as the \textbf{vocabulary} of possible values, to integers. Since not every street in the world will appear in our dataset, we can group all other streets into a catch-all ``other" category, known as an \textbf{OOV (out-of-vocabulary) bucket}.
+\\Using this, we can map our street names to numbers:
 \begin{itemize}
 	\item Charleston Road = 0
 	\item North Shoreline Boulevard = 1
@@ -297,80 +292,135 @@ Mapping categorical is much less than mapping num'Makefile' has erical values. I
 	\item Rengstorff Avenue = 3
 	\item Everything else (OOV) = 4
 \end{itemize}
-We then crete a binary vector for each categorical feature. So we set the corresponding vector elements to 1. And all other values to 0. However, multiple values could be set if necessary, this is called \textbf{multi-hot encoding}. If only a single value is set, it is called \textbf{one-hot encoding}. The figure above gives us an visual example.
+However, if we incorporate these index numbers directly into our model, it will impose some constraints that might be problematic:
+\begin{itemize}
+	\item We'll be learning a single weight that applies to all streets. For example, if we learn a weight of 6 for {\tt{street\_name}}, then we will multiply it by 0 for Charleston Road, by 1 for North Shoreline Boulevard, 2 for Shorebird Way and so on. Consider a model that predicts house prices using {\tt{street\_name}} as a feature. It is unlikely that there is a linear adjustment of price based on the street name, and furthermore this would assume you have ordered the streets based on their average house price. Our model needs the flexibility of learning different weights for each street that will be added to the price estimated using the other features.
+	\item We aren't accounting for cases where {\tt{street\_name}} may take multiple values. For example, many houses are located at the corner of two streets, and there's no way to encode that information in the {\tt{street\_name}} value if it contains a single index.
+\end{itemize}
+To remove both these constraints, we can instead create a binary vector for each categorical feature in our model that represents values as follows:
+\begin{itemize}
+	\item For values that apply to the example, set corresponding vector elements to 1.
+	\item Set all other elements to 0.
+\end{itemize}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale = 0.575]{imgs/RawToStringFeature.png}
+	\caption{illustrates a one-hot encoding of a particular street: Shorebird Way. The element in the binary vector for Shorebird Way has a value of 1, while the elements for all other streets have values of 0.}
+\end{figure}
+The length of this vector is equal to the number of elements in the vocabulary. This representation is called a \href{https://developers.google.com/machine-learning/glossary#one-hot_encoding}{\textbf{one-hot encoding}} when a single value is 1, and a multi-hot encoding when multiple values are 1.
+This approach effectively creates a Boolean variable for every feature value (e.g., {\tt{street\_name}}). Here, if a house is on Shorebird Way then the binary value is 1 only for Shorebird Way. Thus, the model uses only the weight for Shorebird Way.
 
-\subsection{Ensuring a Good Representation of Features}
-\subsubsection{Use Discrete Feature Values}
-Having many discrete values would help the model see the feature in different situations, and thus would be able to determine when it is a good predictor.
-For example, having {\tt{house\_type: victorian}} instead of {\tt{unique\_house\_id: 8SK982ZZ1242Z}}. Having the latter, would mean the model would not be able to learn anything from it as it would appear very rarly.
+Similarly, if a house is at the corner of two streets, then two binary values are set to 1, and the model uses both their respective weights.
+Note : \href{https://developers.google.com/machine-learning/glossary#one-hot_encoding}{\textbf{One-hot encoding}} extends to numeric data that you do not want to directly multiply by a weight, such as a postal code.
+
+\subsubsection{Sparse Representation}
+
+Suppose that you had 1,000,000 different street names in your data set that you wanted to include as values for {\tt{street\_name}}. Explicitly creating a binary vector of 1,000,000 elements where only 1 or 2 elements are true is a very inefficient representation in terms of both storage and computation time when processing these vectors. In this situation, a common approach is to use a \href{https://developers.google.com/machine-learning/glossary#sparse_representation}{\textbf{sparse representation}} in which only nonzero values are stored. In sparse representations, an independent model weight is still learned for each feature value, as described above.
+
+\subsection{Qualities of Good Features}
+
+\subsubsection{Avoid rarely used Discrete Feature Values}
+Having many \href{https://developers.google.com/machine-learning/glossary#discrete_feature}{\textbf{discrete feature values}} would help the model see the feature in different situations, and thus would be able to determine when it is a good predictor.
+For example, having {\tt{house\_type:}} victorian instead of {\tt{unique\_house\_id:}} 8SK982ZZ1242Z. Having the latter, would mean the model would not be able to learn anything from it as it would appear very rarly. A good feature value should appear more than 5 or so times in a data set. Doing so enables a model to learn how this feature values relates to the label.
+
 \subsubsection{Provide Obvious Meanings}
-Each feature should give a clear meaning for example, having {\tt{house\_age\_years: 27}} instead of {\tt{house\_age: 851472000}}. This helps us find noisy data for example {\tt{user\_age\_years: 277}}, which is easier to spot that it this cannot be valid.
-\subsubsection{Don't Mix Actual Data with "Magic Numbers"}
-Floating point values should be in between 0 and 1, and if there is no value associated, e.g. if the user did not enter a value, then have a Boolean feature to specify if that feature is defines.
-\subsubsection{Account for Potential Changes with the Meanings of Feature Values}
-The meaning of the feature value should not change over time. For example, having {\tt{city\_lol: "london"}} instead of {\tt{inferred\_city\_cluster: "23"}}. As "london" is less likely to change in comparison to the meaning of "23".
+Each feature should give a clear meaning for example, having {\tt{house\_age\_years:}} 27 instead of {\tt{house\_age:}} 851472000. This helps us find noisy data for example {\tt{user\_age\_years:}} 277, which is easier to spot that it this cannot be valid.
+
+\subsubsection{Don't mix actual data with "Magic Numbers"}
+Good floating-point features don't contain peculiar out-of-range discontinuities or ``magic" values. If there is no value associated, e.g. if the user did not enter a value, then have a Boolean feature (e.g. {\tt{quality\_rating}} = -1) to specify if that feature is not defined.
+\newline\\To mark these ``magic' values, in the original feature, replace them as follows: 
+\begin{itemize}
+	\item For variables that take a finite set of values (discrete variables), add a new value to the set and use it to signify that the feature value is missing.
+	\item For continuous variables, ensure missing values do not affect the model by using the mean value of the feature's data.
+\end{itemize}
+
+\subsubsection{Account for changes in definitions for Feature Values}
+The meaning of the feature value should not change over time. For example, having {\tt{city\_lol:}} ``london" instead of {\tt{inferred\_city\_cluster:}} 23. As ``london" is less likely to change in comparison to the meaning of 23.
 
 \subsection{Cleaning Data}
 \subsubsection{Scaling Feature Values}
-Scaling means converting floating-point feature values from their natural range (for example, 100 to 900) into a standard range (for example, 0 to 1 or -1 to +1). In this way we avoid the model from inappropriately weighting features. 
+\href{https://developers.google.com/machine-learning/glossary#scaling}{\textbf{Scaling}} means converting floating-point feature values from their natural range (for example, 100 to 900) into a standard range (for example, 0 to 1 or -1 to +1). If a \href{https://developers.google.com/machine-learning/glossary#feature_set}{\textbf{feature set}} consists of multiple features, the feature scaling provides the following benefits: 
+\begin{itemize}
+	\item Helps gradient descent converge more quickly.
+	\item Helps avoid the ``\href{https://developers.google.com/machine-learning/glossary#NaN_trap}{\textbf{NaN trap}}", in which one number in the model becomes a \href{https://wikipedia.org/wiki/NaN}{\textbf{NaN}} (e.g., when a value exceeds the floating-point precision limit during training), and—due to math operations—every other number in the model also eventually becomes a NaN.
+	\item Helps the model learn appropriate weights for each feature. Without feature scaling, the model will pay too much attention to the features having a wider range.
+\end{itemize}
+Note: you don't have to give every floating-point feature exactly the same scale as if Feature A is ranged -1 to +1 while Feature B is -3 to +3, nothing bad will happen. However if Feature B is scaled from 5000 to 10000 your model will react poorly.
+\\One obvious way to scale numerical data is to linearly map [min value, max value] to a small scale, such as [-1, +1].
 
+Another popular scaling tactic is to calculate the Z score of each value. The Z score relates the number of standard deviations away from the mean. In other words: 
+\begin{center}
+	$scaledValue = {{(value - mean)}\over{(stdDev)}}$
+\end{center}
+Scaling with Z scores means that most scaled values will be between -3 and +3, but a few values will be a little higher or lower than that range.
 \subsubsection{Handling Extreme Outliers}
-For outliers, there are numberious ways to avoid this:
+For \href{https://developers.google.com/machine-learning/glossary#outliers}{\textbf{outliers}}, there are numberious ways to avoid this:
 
 \begin{itemize}
 	\item Logging the values - e.g. roomsPerPerson = log((totalRooms \/ population) + 1)
-	\item Clipping, capping the values at a certain point - e.g. roomsPerPerson = min(totalRooms \/ population, 4)
+	\item Clipping, capping the values at a certain point. Therefore any data larger than this max point is compressed together as each take up its value.
 \end{itemize}
 
 \subsubsection{Binning}
-Binning is grouping values together as shown below.
+\href{https://developers.google.com/machine-learning/glossary#binning}{\textbf{Binning}} is grouping values together as shown below.
 \begin{figure}[H]
 	\includegraphics[scale = 0.5]{imgs/binning.png}
 	\centering
 	\caption{Binning Latitude}
 \end{figure}
+In the data set, {\tt{latitude}} is a floating-point value. However, it doesn't make sense to represent {\tt{latitude}} as a floating-point feature in our model. That's because no linear relationship exists between latitude and housing values. For example, houses in latitude 35 are not ${35}\over{34}$ more expensive (or less expensive) than houses at latitude 34. And yet, individual latitudes probably are a pretty good predictor of house values.
+To make latitude a helpful predictor, they are instead divided up into the ``bins'' that can be seen above. Another approach is to bin by \href{https://wikipedia.org/wiki/Quantile}{\textbf{quantile}}, which ensures that the number of examples in each bucket is equal. Binning by quantile completely removes the need to worry about outliers.
 Instead of having one floating-point feature, we now have 11 distinct boolean features. Having 11 separate features is somewhat inelegant, so let's unite them into a single 11-element vector.
 
 \subsubsection{Scrubbing}
-Many examples in data sets are unreliable, and hence these values need to be removed from the set.
+Many examples in data sets are unreliable, and hence these values need to be removed from the set. Reasons include:
 \begin{itemize}
 	\item \textbf{Omitted Values} - If the user forgets to enter a value.
 	\item \textbf{Duplicates}
 	\item \textbf{Bad Labels} - Labelling errors.
 	\item \textbf{Bad Feature Values} - Value errors e.g. adding an extra digit or a wrong one.
 \end{itemize}
-To find bad examples, a Histogram would be a good way to represent the data. Other statistics that would help find errors would be; Maximum, Minimum, Mean, Median and Standard Deviation.
-
+To find bad examples, a Histogram would be a good way to represent the data, helping you to visualise and detect bad data in aggregate. Other statistics that would help find errors would be; Maximum, Minimum, Mean, Median and Standard Deviation.
+Once detected, you typically ``fix" bad examples by removing them from the data set. To detect omitted values or duplicated examples, you can write a simple program. However, detecting bad feature values or labels can be far trickier.
+\\Ultimately you want to \textbf{know your data} and as such: 
+\begin{itemize}
+	\item Keep in mind what you think your data should look like.
+	\item Verify that the data meets these expectations (or that you can explain why it doesn’t).
+	\item Double-check that the training data agrees with other sources (e.g. dashboards).
+\end{itemize}
 \section{Feature Crosses}
-If it is difficult to separate the categories in the model as shown in \textbf{Figure 11}, we create a feature cross. A \textbf{feature cross} is a synthetic feature that encodes nonlinearity in the feature space by multiplying two or more input features together. For example, if we had features $x_1$ and $x_2$, the feature cross, $x_3$, would be $x_3 = x_1 * x_2$.
-\\This would mean the linear formula becomes: $y = b + w_1x_1 + w_2x_2 + w_3x_3$. Where the weights $w_1$, $w_2$ and $w_3$ are all learnt by the linear model.
+If it is difficult to separate the categories in the model as shown in \textbf{Figure 13}, as this is no longer a linear problem. Instead, we create a feature cross to solve the nonlinearity of this problem. A \href{https://developers.google.com/machine-learning/glossary#feature_cross}{\textbf{feature cross}} is a \href{https://developers.google.com/machine-learning/glossary#synthetic_feature}{\textbf{synthetic feature}} that encodes nonlinearity in the feature space by multiplying two or more input features together. For example, if we had features $x_1$ and $x_2$, the feature cross, $x_3$, would be $x_3 = x_1 * x_2$.
+\\This would mean the linear formula becomes: $y = b + w_1x_1 + w_2x_2 + w_3x_3$. Where the weights $w_1$, $w_2$ and $w_3$ are all learnt by the linear model even thought $w_3$ encodes nonlinear information. Many different kinds of feature crosses exist such as $[A X B]$ to $[A X B X C X D X E]$ to $[A X A]$.
 
 \begin{figure}[H]
 	\includegraphics[scale = 0.5]{imgs/NonLinearModel.png}
 	\centering
-	\caption{Figure showing a non linear model }
+	\caption{Figure showing a model with nonlinearity}
 \end{figure}
 
+Due to \href{https://developers.google.com/machine-learning/crash-course/reducing-loss/stochastic-gradient-descent}{\textbf{stochastic gradient descent}}, linear models can be trained efficiently. As such, supplementing scaled linear models with feature crosses has traditionally been an efficient way to train on massive-scale data sets.
+
 \section{Regularisation for Simplicity}
-As you can see in \textbf{Figure 12} as you increase the iterations, the training loss decreases however the validation loss eventually begins to increase. This is because the model overfits to the given data. Up till now we have only been trying to decrease the training loss, now we will explore how we can avoid overfitting using a principle called regularisation.
+As you can see in \textbf{Figure 14} as you increase the iterations, the training loss decreases however the validation loss eventually begins to increase. This is because the model is \href{https://developers.google.com/machine-learning/crash-course/generalization/peril-of-overfitting}{\textbf{overfitting}} to the given data. Up till now we have only been trying to decrease the training loss, now we will explore how we can avoid overfitting using a principle called \href{https://developers.google.com/machine-learning/glossary#regularization}{\textbf{regularisation}}.
 \begin{figure}[H]
 	\includegraphics[scale = 0.5]{imgs/GeneralizationCurve.png}
 	\centering
 	\caption{Figure showing the generalization curve}
 \end{figure}
-We will now minimize the loss + complextity, this is called structural risk minimization:
+Instead of simply aiming to minimize loss (empirical risk minimization), our aim to is minimize loss+complexity, known as \href{https://developers.google.com/machine-learning/glossary#SRM}{\textbf{structural risk minimization}}:
 \begin{center}
-$minimize(Loss(Data|Model))$\\ \textrightarrow \\$minimize(Loss(Data|Model)) + complexity(Model)$
+$minimize(Loss(Data|Model)) + complexity(Model)$\\
 \end{center}
-In this section, we will use the $L_2$ regularization, which quantifies the regularization term as the sum of squares of the feature wieghts.
+If model complexity is a function of weights, a feature weight with a high absolute value is more complex than a feature weight with a low absolute value. As such, by using\href{https://developers.google.com/machine-learning/glossary#L2_regularization}{\textbf{$L_2$ regularization}}, which quantifies the regularization term as the sum of squares of the feature weights, weights close to zero have little effect on model complexity, while outlier weights can have a huge impact.
 \begin{center}
 $L_2$ regularization term $= w^2_1 + w^2_2 + .. + w^2_n$
 \end{center}
-To further tune the impact of the regularization term. We multiply the $L_2$ value by a scalar, $\lambda$. Thus we now aim to: 
+\subsection{Lambda - The Regularization Rate}
+To further tune the impact of the regularization term, we multiply the $L_2$ value by a scalar, $\lambda$ (the \href{https://developers.google.com/machine-learning/glossary#regularization_rate}{\textbf{regularisation rate}}). Thus we now aim to: 
 \begin{center}
 $minimize(Loss(Data|Model)) + \lambda complexity(Model)$
 \end{center}
-In this way, the regularization ecourages weight values and the mean of the weights towards 0, with a Gaussian Distribution. Increasing the lambda value strengthens the regularization effect.
+Therefore, the effect of regularization encourages the model's weight values and the mean of these weights towards 0, to form a normal Gaussian Distribution. Increasing the lambda value strengthens the regularization effect as seen below.
 \begin{figure}[H]%
     \centering
 	\subfloat[Histogram of weights with a high lamda value.]{{\includegraphics[width=7cm]{imgs/RegularizationNormDist.png}}}%
@@ -378,12 +428,18 @@ In this way, the regularization ecourages weight values and the mean of the weig
     \subfloat[Histogram of weights with a low lamda va'Makefile' has lue.]{{\includegraphics[width=7cm]{imgs/RegularizationBad.png}}}%
     \caption{Lowering the value of lambda tends to yield a flatter histogram}%
 \end{figure}
-If the lambda value is:
+When choosing the right lambda value, the goal is to strike the right balance between simplicity and training-data fit. If the lambda value is:
 \begin{itemize}
-\item too high, the model would be simple however there is a greater risk of underfitting the data. Hence the model would not be able to learn much from the training data.
-\item too low, the model would be more complex however there is a greater risk of overfitting the data. This means it will learn too much about the particularities of the training data set.
+\item too high, the model would be simple however there is a greater risk of \underline{underfitting} the data. Hence the model model won't learn enough about the training data to make useful predictions.
+\item too low, the model would be more complex however there is a greater risk of \underline{overfitting} the data. This means it will learn too much about the particularities of the training data set, and won't be able to generalize to new data.
 \end{itemize}
 
+\textbf{Note}: Setting lambda to zero removes regularization completely. In this case, training focuses exclusively on minimizing loss, which poses the highest possible overfitting risk.
+\\\newline The ideal value of lambda produces a model that generalizes well to new, previously unseen data. Unfortunately, that ideal value of lambda is data-dependent, so you'll need to do some tuning.
+\subsection{Learning rate and Lambda}
+There's a close connection between learning rate and lambda. Strong $L_2$ regularization values tend to drive feature weights closer to 0. Lower learning rates (with \href{https://developers.google.com/machine-learning/glossary#early_stopping}{\textbf{early stopping}}) often produce the same effect because the steps away from 0 aren't as large. Consequently, tweaking learning rate and lambda simultaneously may have confounding effects.
+\\\newline \href{https://developers.google.com/machine-learning/glossary#early_stopping}{\textbf{Early stopping}} means ending training before the model fully reaches convergence. In practice, we often end up with some amount of implicit early stopping when training in an online (continuous) fashion. That is, some new trends just haven't had enough data yet to converge.
+The effects from changes to regularization parameters can be confounded with the effects from changes in learning rate or number of iterations. One useful practice (when training across a fixed batch of data) is to give yourself a high enough number of iterations that early stopping doesn't play into things.
 \section{Logistic Regression}
 There a two ways of calculating probability, "As is" and Converted to a binary category. The "As is" approach is self-explanatory. However, in classification cases we use a \textbf{sigmoid function}, which produces an output which always falls between 0 to 1. The sigmoid function is as follows:
 \begin{center}

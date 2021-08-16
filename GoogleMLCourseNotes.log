@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.10.12)  20 JUL 2021 16:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.10.12)  16 AUG 2021 14:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -307,24 +307,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--49
  []
 
 [4] [5]
-<imgs/LossSideBySide.png, id=339, 1312.905pt x 437.635pt>
+<imgs/LossSideBySide.png, id=354, 1312.905pt x 437.635pt>
 File: imgs/LossSideBySide.png Graphic file (type png)
 <use imgs/LossSideBySide.png>
 Package pdftex.def Info: imgs/LossSideBySide.png  used on input line 85.
 (pdftex.def)             Requested size: 393.87454pt x 131.2915pt.
  [6 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/LossSideBySide.png>]
-<imgs/Iterative Approach.PNG, id=350, 590.70688pt x 246.9225pt>
+<imgs/Iterative Approach.PNG, id=365, 590.70688pt x 246.9225pt>
 File: imgs/Iterative Approach.PNG Graphic file (type png)
 <use imgs/Iterative Approach.PNG>
 Package pdftex.def Info: imgs/Iterative Approach.PNG  used on input line 119.
 (pdftex.def)             Requested size: 295.3527pt x 123.46094pt.
-<imgs/lossVSweight.png, id=353, 322.20375pt x 235.37938pt>
+<imgs/lossVSweight.png, id=368, 322.20375pt x 235.37938pt>
 File: imgs/lossVSweight.png Graphic file (type png)
 <use imgs/lossVSweight.png>
 Package pdftex.def Info: imgs/lossVSweight.png  used on input line 136.
 (pdftex.def)             Requested size: 225.54108pt x 164.76443pt.
  [7 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/Iterative Approach.PNG>]
-<imgs/stepSize.png, id=363, 558.085pt x 93.34875pt>
+<imgs/stepSize.png, id=378, 558.085pt x 93.34875pt>
 File: imgs/stepSize.png Graphic file (type png)
 <use imgs/stepSize.png>
 Package pdftex.def Info: imgs/stepSize.png  used on input line 145.
@@ -335,7 +335,7 @@ Overfull \hbox (4.61948pt too wide) in paragraph at lines 145--146
  []
 
 [8 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/lossVSweight.png> </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/stepSize.png>]
-<imgs/TFHierarchy.png, id=381, 875.27pt x 279.0425pt>
+<imgs/TFHierarchy.png, id=396, 875.27pt x 279.0425pt>
 File: imgs/TFHierarchy.png Graphic file (type png)
 <use imgs/TFHierarchy.png>
 Package pdftex.def Info: imgs/TFHierarchy.png  used on input line 169.
@@ -346,28 +346,28 @@ Overfull \hbox (11.64497pt too wide) in paragraph at lines 169--170
  []
 
 [9] [10 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/TFHierarchy.png>]
-<imgs/complexPredictionModel.png, id=395, 405.515pt x 409.53pt>
+<imgs/complexPredictionModel.png, id=410, 405.515pt x 409.53pt>
 File: imgs/complexPredictionModel.png Graphic file (type png)
 <use imgs/complexPredictionModel.png>
 Package pdftex.def Info: imgs/complexPredictionModel.png  used on input line 198.
 (pdftex.def)             Requested size: 213.39566pt x 215.51262pt.
-<imgs/complexModelWithNewData.png, id=396, 401.5pt x 402.50375pt>
+<imgs/complexModelWithNewData.png, id=411, 401.5pt x 402.50375pt>
 File: imgs/complexModelWithNewData.png Graphic file (type png)
 <use imgs/complexModelWithNewData.png>
 Package pdftex.def Info: imgs/complexModelWithNewData.png  used on input line 200.
 (pdftex.def)             Requested size: 213.39566pt x 213.93399pt.
  [11 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/complexPredictionModel.png> </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/complexModelWithNewData.png>] [12]
-<imgs/GoodTrainingAndTesting.png, id=414, 864.22874pt x 429.605pt>
+<imgs/GoodTrainingAndTesting.png, id=429, 864.22874pt x 429.605pt>
 File: imgs/GoodTrainingAndTesting.png Graphic file (type png)
 <use imgs/GoodTrainingAndTesting.png>
 Package pdftex.def Info: imgs/GoodTrainingAndTesting.png  used on input line 246.
 (pdftex.def)             Requested size: 432.11331pt x 214.80197pt.
-<imgs/PreValidation.png, id=416, 875.27pt x 446.66875pt>
+<imgs/PreValidation.png, id=431, 875.27pt x 446.66875pt>
 File: imgs/PreValidation.png Graphic file (type png)
 <use imgs/PreValidation.png>
 Package pdftex.def Info: imgs/PreValidation.png  used on input line 254.
 (pdftex.def)             Requested size: 341.43306pt x 174.241pt.
-<imgs/PostValidation.png, id=417, 869.2475pt x 419.5675pt>
+<imgs/PostValidation.png, id=432, 869.2475pt x 419.5675pt>
 File: imgs/PostValidation.png Graphic file (type png)
 <use imgs/PostValidation.png>
 Package pdftex.def Info: imgs/PostValidation.png  used on input line 256.
@@ -376,144 +376,164 @@ Package pdftex.def Info: imgs/PostValidation.png  used on input line 256.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/RawToFeature.png, id=421, 845.1575pt x 391.4625pt>
+<imgs/RawToFeature.png, id=437, 845.1575pt x 391.4625pt>
 File: imgs/RawToFeature.png Graphic file (type png)
 <use imgs/RawToFeature.png>
 Package pdftex.def Info: imgs/RawToFeature.png  used on input line 268.
-(pdftex.def)             Requested size: 422.57771pt x 195.73076pt.
+(pdftex.def)             Requested size: 485.96179pt x 225.08917pt.
+
+Overfull \hbox (16.20677pt too wide) in paragraph at lines 268--270
+ [][] 
+ []
+
 [13 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/GoodTrainingAndTesting.png>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<imgs/RawToIntFeature.png, id=431, 781.92125pt x 331.2375pt>
+<imgs/RawToIntFeature.png, id=447, 781.92125pt x 331.2375pt>
 File: imgs/RawToIntFeature.png Graphic file (type png)
 <use imgs/RawToIntFeature.png>
 Package pdftex.def Info: imgs/RawToIntFeature.png  used on input line 277.
-(pdftex.def)             Requested size: 390.95967pt x 165.61833pt.
+(pdftex.def)             Requested size: 430.05801pt x 182.18118pt.
+[14 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/PreValidation.png> </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/PostValidation.png>]
+LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 284.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 284.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 285.
-LaTeX Font Info:    No file OMScmtt.fd. on input line 285.
 
 LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 285.
+(Font)              for symbol `textbraceleft' on input line 284.
 
-<imgs/RawToStringFeature.png, id=432, 874.26625pt x 361.35pt>
-File: imgs/RawToStringFeature.png Graphic file (type png)
-<use imgs/RawToStringFeature.png>
-Package pdftex.def Info: imgs/RawToStringFeature.png  used on input line 287.
-(pdftex.def)             Requested size: 437.13205pt x 180.67456pt.
 
-Overfull \hbox (5.54523pt too wide) in paragraph at lines 283--293
-\OMS/cmtt/m/n/12 f\OT1/cmtt/m/n/12 'Charleston Road', 'North Shoreline Boulevard', 'Shorebird Way', 'Rengstorff
+Overfull \hbox (5.54523pt too wide) in paragraph at lines 283--288
+\OMS/cmtt/m/n/12 f\OT1/cmtt/m/n/12 `Charleston Road', `North Shoreline Boulevard', `Shorebird Way', `Rengstorff
  []
 
-[14 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/PreValidation.png> </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/PostValidation.png>]
+[15 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/RawToFeature.png> </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/RawToIntFeature.png>]
+<imgs/RawToStringFeature.png, id=464, 874.26625pt x 361.35pt>
+File: imgs/RawToStringFeature.png Graphic file (type png)
+<use imgs/RawToStringFeature.png>
+Package pdftex.def Info: imgs/RawToStringFeature.png  used on input line 307.
+(pdftex.def)             Requested size: 502.69919pt x 207.77463pt.
+
+Overfull \hbox (32.94417pt too wide) in paragraph at lines 307--308
+ [][] 
+ []
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[15 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/RawToFeature.png> </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/RawToIntFeature.png>] [16 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/RawToStringFeature.png>]
-Overfull \hbox (3.09518pt too wide) in paragraph at lines 322--323
-[]\OT1/cmr/m/n/12 Clipping, cap-ping the val-ues at a cer-tain point - e.g. roomsPer-Per-son = min(totalRooms
+[16] [17 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/RawToStringFeature.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 330--332
+
  []
 
-<imgs/binning.png, id=453, 766.865pt x 309.155pt>
+[18]
+<imgs/binning.png, id=488, 766.865pt x 309.155pt>
 File: imgs/binning.png Graphic file (type png)
 <use imgs/binning.png>
-Package pdftex.def Info: imgs/binning.png  used on input line 328.
+Package pdftex.def Info: imgs/binning.png  used on input line 367.
 (pdftex.def)             Requested size: 383.43156pt x 154.57712pt.
-[17 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/binning.png>]
-<imgs/NonLinearModel.png, id=459, 308.15125pt x 308.15125pt>
+ [19 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/binning.png>]
+<imgs/NonLinearModel.png, id=498, 308.15125pt x 308.15125pt>
 File: imgs/NonLinearModel.png Graphic file (type png)
 <use imgs/NonLinearModel.png>
-Package pdftex.def Info: imgs/NonLinearModel.png  used on input line 349.
+Package pdftex.def Info: imgs/NonLinearModel.png  used on input line 396.
 (pdftex.def)             Requested size: 154.07524pt x 154.07524pt.
-<imgs/GeneralizationCurve.png, id=460, 846.16125pt x 392.46625pt>
+ [20]
+<imgs/GeneralizationCurve.png, id=506, 846.16125pt x 392.46625pt>
 File: imgs/GeneralizationCurve.png Graphic file (type png)
 <use imgs/GeneralizationCurve.png>
-Package pdftex.def Info: imgs/GeneralizationCurve.png  used on input line 357.
+Package pdftex.def Info: imgs/GeneralizationCurve.png  used on input line 406.
 (pdftex.def)             Requested size: 423.07959pt x 196.23264pt.
- [18 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/NonLinearModel.png>]
-<imgs/RegularizationNormDist.png, id=466, 656.4525pt x 497.86pt>
+ [21 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/NonLinearModel.png> </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/GeneralizationCurve.png>]
+<imgs/RegularizationNormDist.png, id=517, 656.4525pt x 497.86pt>
 File: imgs/RegularizationNormDist.png Graphic file (type png)
 <use imgs/RegularizationNormDist.png>
-Package pdftex.def Info: imgs/RegularizationNormDist.png  used on input line 376.
+Package pdftex.def Info: imgs/RegularizationNormDist.png  used on input line 426.
 (pdftex.def)             Requested size: 199.16928pt x 151.0532pt.
-<imgs/RegularizationBad.png, id=467, 499.8675pt x 385.44pt>
+<imgs/RegularizationBad.png, id=518, 499.8675pt x 385.44pt>
 File: imgs/RegularizationBad.png Graphic file (type png)
 <use imgs/RegularizationBad.png>
-Package pdftex.def Info: imgs/RegularizationBad.png  used on input line 378.
+Package pdftex.def Info: imgs/RegularizationBad.png  used on input line 428.
 (pdftex.def)             Requested size: 199.16928pt x 153.57336pt.
- [19 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/GeneralizationCurve.png>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 437--439
+
+ []
+
+[22 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/RegularizationNormDist.png> </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/RegularizationBad.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 440--443
+
+ []
+
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <20.74> on input line 391.
- [20 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/RegularizationNormDist.png> </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/RegularizationBad.png>]
+(Font)              <20.74> on input line 447.
+[23]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <17.28> on input line 427.
- [21]
-<imgs/AUC.png, id=488, 326.21875pt x 273.02pt>
+(Font)              <17.28> on input line 483.
+ [24]
+<imgs/AUC.png, id=539, 326.21875pt x 273.02pt>
 File: imgs/AUC.png Graphic file (type png)
 <use imgs/AUC.png>
-Package pdftex.def Info: imgs/AUC.png  used on input line 447.
+Package pdftex.def Info: imgs/AUC.png  used on input line 503.
 (pdftex.def)             Requested size: 163.10896pt x 136.50966pt.
-<imgs/CalibrationScatter.png, id=489, 528.97626pt x 423.5825pt>
+<imgs/CalibrationScatter.png, id=540, 528.97626pt x 423.5825pt>
 File: imgs/CalibrationScatter.png Graphic file (type png)
 <use imgs/CalibrationScatter.png>
-Package pdftex.def Info: imgs/CalibrationScatter.png  used on input line 467.
+Package pdftex.def Info: imgs/CalibrationScatter.png  used on input line 523.
 (pdftex.def)             Requested size: 158.69409pt x 127.07573pt.
- [22 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/AUC.png>]
-<imgs/NonlinearComplex.png, id=495, 313.17pt x 313.17pt>
+ [25 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/AUC.png>]
+<imgs/NonlinearComplex.png, id=547, 313.17pt x 313.17pt>
 File: imgs/NonlinearComplex.png Graphic file (type png)
 <use imgs/NonlinearComplex.png>
-Package pdftex.def Info: imgs/NonlinearComplex.png  used on input line 481.
+Package pdftex.def Info: imgs/NonlinearComplex.png  used on input line 537.
 (pdftex.def)             Requested size: 156.58461pt x 156.58461pt.
- [23 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/CalibrationScatter.png>]
-<imgs/LinearGraph.png, id=501, 277.035pt x 177.66376pt>
+ [26 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/CalibrationScatter.png>]
+<imgs/LinearGraph.png, id=553, 277.035pt x 177.66376pt>
 File: imgs/LinearGraph.png Graphic file (type png)
 <use imgs/LinearGraph.png>
-Package pdftex.def Info: imgs/LinearGraph.png  used on input line 488.
+Package pdftex.def Info: imgs/LinearGraph.png  used on input line 544.
 (pdftex.def)             Requested size: 138.51715pt x 88.83165pt.
-<imgs/TwoLayerGraph.png, id=502, 385.44pt x 283.0575pt>
+<imgs/TwoLayerGraph.png, id=554, 385.44pt x 283.0575pt>
 File: imgs/TwoLayerGraph.png Graphic file (type png)
 <use imgs/TwoLayerGraph.png>
-Package pdftex.def Info: imgs/TwoLayerGraph.png  used on input line 496.
+Package pdftex.def Info: imgs/TwoLayerGraph.png  used on input line 552.
 (pdftex.def)             Requested size: 192.71953pt x 141.5284pt.
- [24 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/NonlinearComplex.png> </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/LinearGraph.png>]
-<imgs/activationLayer.png, id=509, 442.65375pt x 237.88875pt>
+ [27 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/NonlinearComplex.png> </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/LinearGraph.png>]
+<imgs/activationLayer.png, id=562, 442.65375pt x 237.88875pt>
 File: imgs/activationLayer.png Graphic file (type png)
 <use imgs/activationLayer.png>
-Package pdftex.def Info: imgs/activationLayer.png  used on input line 503.
+Package pdftex.def Info: imgs/activationLayer.png  used on input line 559.
 (pdftex.def)             Requested size: 221.32632pt x 118.94408pt.
- [25 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/TwoLayerGraph.png> </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/activationLayer.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 568.
- [26]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 568.
+ [28 </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/TwoLayerGraph.png> </Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/imgs/activationLayer.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 624.
+ [29]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 624.
  (/Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/GoogleMLCourseNotes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 568.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 568.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 624.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 624.
 Package rerunfilecheck Info: File `GoogleMLCourseNotes.out' has not changed.
-(rerunfilecheck)             Checksum: 553A66FE8EBF4F7034B84965F10A7B25;4149.
+(rerunfilecheck)             Checksum: 91E699A7517A4E8F49E443EF6D7262A8;4377.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 568.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 624.
  ) 
 Here is how much of TeX's memory you used:
- 7015 strings out of 480608
- 115324 string characters out of 5903629
+ 7023 strings out of 480608
+ 115431 string characters out of 5903629
  369520 words of memory out of 5000000
- 22661 multiletter control sequences out of 15000+600000
+ 22663 multiletter control sequences out of 15000+600000
  541119 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  50i,10n,49p,1308b,425s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on "/Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/GoogleMLCourseNotes.pdf" (26 pages, 2710025 bytes).
+Output written on "/Users/amaankahmad/Documents/Programming/Google Machine Learning/Machine Learning Crash Course/GoogleMLCourseNotes.pdf" (29 pages, 2723707 bytes).
 PDF statistics:
- 598 PDF objects out of 1000 (max. 8388607)
- 514 compressed objects within 6 object streams
- 114 named destinations out of 1000 (max. 500000)
- 593 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 650 PDF objects out of 1000 (max. 8388607)
+ 563 compressed objects within 6 object streams
+ 120 named destinations out of 1000 (max. 500000)
+ 617 words of extra memory for PDF output out of 10000 (max. 10000000)
 
